@@ -8,7 +8,20 @@ Affiche les positions où la lettre apparaît dans le mot ou un message si elle 
 -->
 <?php
     $mot = strtolower("ordinateur");
-    $lettre = "r";
+    $lettre = strtolower("r");
+    $found=false;
 
-    echo strlen($mot);
+    for ($i=0; $i < strlen($mot) ; $i++) { 
+        $item = substr($mot, $i, 1);
+
+        if($item === $lettre){
+            echo "La lettre ".$lettre." est à la position :".$i;
+            $found = true;
+        }
+    }
+
+    if(!$found){
+        echo "La lettre ".$lettre." n'est pas dans le mot.";
+    }
+
 ?>
